@@ -1,9 +1,10 @@
 #pragma once
+#include "IList.h"
 #include <iostream>
 
 
 template <typename T>
-class MyList {
+class MyList : public IList<T> {
 
 protected:
 
@@ -24,20 +25,20 @@ private:
 
 
 public:
-    MyList();                               //Конструктор
-    MyList(MyList* a);                      //Конструктор копирования
-    ~MyList();                              //Деструктор
-    int GetSize();                          //Опрос размера списка
-    void Clean();                           //Очистка списка
-    bool IsEmpty();                         //Проверка списка на пустоту
-    bool IsThere(T value);                  //Опрос наличия элемента
-    T FindValue(int k);                     //Чтение значения с заданным номером в списке
-    bool ChangeValue(int k, T value);       //Изменение значения с заданным номером в списке
-    int FindPos(T value);                   //Получение позиции элемента с заданным значением
-    void AddValue(T value);                 //Включение нового значения
-    bool AddValueToPos(int k, T value);     //Включение нового значения в позицию с заданным номером
-    T DeleteValue(T value);                 //Удаление заданного значения из списка
-    T DeletePos(int k);                     //Удаление значения из позиции с заданным номером
+    ~MyList() override;                              //
+    int GetSize() const override;                          //  
+    void Clean() override;                           // 
+    bool IsEmpty() const override;                         //   
+    bool IsThere(T value) const override;                  //  
+    T FindValue(int k) const override;                     //      
+    bool ChangeValue(int k, T value) override;       //      
+    int FindPos(T value) const override;                   //     
+    void AddValue(T value) override;                 //  
+    bool AddValueToPos(int k, T value) override;     //       
+    T DeleteValue(T value) override;                 //    
+    T DeletePos(int k) override;                     //      
+    T DeleteValue(T value);                 //Г“Г¤Г Г«ГҐГ­ГЁГҐ Г§Г Г¤Г Г­Г­Г®ГЈГ® Г§Г­Г Г·ГҐГ­ГЁГї ГЁГ§ Г±ГЇГЁГ±ГЄГ 
+    T DeletePos(int k);                     //Г“Г¤Г Г«ГҐГ­ГЁГҐ Г§Г­Г Г·ГҐГ­ГЁГї ГЁГ§ ГЇГ®Г§ГЁГ¶ГЁГЁ Г± Г§Г Г¤Г Г­Г­Г»Г¬ Г­Г®Г¬ГҐГ°Г®Г¬
 
     class Iterator {
         MyList* p;

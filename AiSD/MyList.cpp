@@ -28,17 +28,17 @@ void MyList<T>::Clean() {
 }
 
 template<typename T>
-int MyList<T>::GetSize() {
+int MyList<T>::GetSize() const {
     return size;
 }
 
 template<typename T>
-bool MyList<T>::IsEmpty() {
+bool MyList<T>::IsEmpty() const {
     return (head == nullptr);
 }
 
 template<typename T>
-bool MyList<T>::IsThere(T value) {
+bool MyList<T>::IsThere(T value) const {
     Node* current = head;
     bool flag = false;
     do {
@@ -54,7 +54,7 @@ bool MyList<T>::IsThere(T value) {
 }
 
 template<typename T>
-T MyList<T>::FindValue(int k) {
+T MyList<T>::FindValue(int k) const {
     if (k < size && k >= 0) {
         Node* current = head;
         for (int i = 0; i < k; i++) {
@@ -64,7 +64,7 @@ T MyList<T>::FindValue(int k) {
         return value;
     }
     else {
-        throw "Введенная позиция недействительна";
+int MyList<T>::FindPos(T value) const {
     }
 }
 
@@ -80,7 +80,7 @@ bool MyList<T>::ChangeValue(int k, T value) {
         flag = true;
     }
     else {
-        throw "Введенная позиция недействительна";
+        throw "Г‚ГўГҐГ¤ГҐГ­Г­Г Гї ГЇГ®Г§ГЁГ¶ГЁГї Г­ГҐГ¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г ";
     }
     return flag;
 }
@@ -151,7 +151,7 @@ bool MyList<T>::AddValueToPos(int k, T value) {
         size++;
     }
     else {
-        throw "Введенная позиция недействительна";
+        throw "Г‚ГўГҐГ¤ГҐГ­Г­Г Гї ГЇГ®Г§ГЁГ¶ГЁГї Г­ГҐГ¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г ";
     }
     return flag;
 }
@@ -182,6 +182,6 @@ T MyList<T>::DeletePos(int k) {
         return value;
     }
     else {
-        throw "Введенная позиция недействительна";
+        throw "Г‚ГўГҐГ¤ГҐГ­Г­Г Гї ГЇГ®Г§ГЁГ¶ГЁГї Г­ГҐГ¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г ";
     }
 }
