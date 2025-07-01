@@ -2,44 +2,14 @@
 #include <Windows.h>
 #include "MyList.h"
 
+#include "InputValidator.h"
 
-int Check() {
-    int input_value;
-    while (true) {
-        std::cin >> input_value;
-        if (std::cin.fail()) {
-            std::cin.clear();
-            std::cin.ignore(32767, '\n');
-            std::cout << "Íåâåğíîå çíà÷åíèå, ïîïğîáóéòå ñíîâà" << std::endl;
-        }
-        else {
-            break;
-        }
-    }
-    return input_value;
-}
-
-int CheckNonNeg() {
-    int input_value;
-    while (true) {
-        std::cin >> input_value;
-        if (std::cin.fail() || input_value < 0) {
-            std::cin.clear();
-            std::cin.ignore(32767, '\n');
-            std::cout << "Íåâåğíîå çíà÷åíèå, ïîïğîáóéòå ñíîâà" << std::endl;
-        }
-        else {
-            break;
-        }
-    }
-    return input_value;
-}
 
 int Options(MyList <int>& start_list, MyList <int> &current_list) {
-    std::cout << "================= ÀÒÄ \"Ñïèñîê\" ==================" << std::endl;
-    std::cout << "Èçíà÷àëüíûé ñïèñîê: ";
-    if (start_list.IsEmpty()) {
-        std::cout << "-" << std::endl;
+    return InputValidator::Check();
+    return InputValidator::Check();
+    return InputValidator::Check();
+            input_value = InputValidator::Check();
     }
     else {
         MyList<int>::Iterator it = start_list.begin();
@@ -49,7 +19,7 @@ int Options(MyList <int>& start_list, MyList <int> &current_list) {
         } while (it != start_list.end());
         std::cout << std::endl;
     }
-    std::cout << "Òåêóùåå çíà÷åíèå ñïèñêà: ";
+    std::cout << "Ã’Ã¥ÃªÃ³Ã¹Ã¥Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã±Ã¯Ã¨Ã±ÃªÃ : ";
     if (current_list.IsEmpty()) {
         std::cout << "-" << std::endl;
     }
@@ -62,64 +32,64 @@ int Options(MyList <int>& start_list, MyList <int> &current_list) {
         std::cout << std::endl;
     }
     std::cout << "============================================" << std::endl;
-    std::cout << "1. Îïğîñ ğàçìåğà ñïèñêà " << std::endl;
-    std::cout << "2. Î÷èñòêà ñïèñêà" << std::endl;
-    std::cout << "3. Ïğîâåğêà ñïèñêà íà ïóñòîòó" << std::endl;
-    std::cout << "4. Îïğîñ íàëè÷èÿ çàäàííîãî çíà÷åíèÿ" << std::endl;
-    std::cout << "5. ×òåíèå çíà÷åíèÿ ñ çàäàííûì íîìåğîì â ñïèñêå" << std::endl;
-    std::cout << "6. Èçìåíåíèå çíà÷åíèÿ ñ çàäàííûì íîìåğîì â ñïèñêå" << std::endl;
-    std::cout << "7. Ïîëó÷åíèå ïîçèöèè â ñïèñêå äëÿ çàäàííîãî çíà÷åíèÿ" << std::endl;
-    std::cout << "8. Âêëş÷åíèå íîâîãî çíà÷åíèÿ" << std::endl;
-    std::cout << "9. Âêëş÷åíèå íîâîãî çíà÷åíèÿ â ïîçèöèş ñ çàäàííûì íîìåğîì" << std::endl;
-    std::cout << "10. Óäàëåíèå çàäàííîãî çíà÷åíèÿ èç ñïèñêà" << std::endl;
-    std::cout << "11. Óäàëåíèå çíà÷åíèÿ èç ïîçèöèè ñ çàäàííûì íîìåğîì" << std::endl;
-    std::cout << "12. ÀÒÄ \"Ïğÿìîé Èòåğàòîğ\"" << std::endl;
-    std::cout << "13. ÀÒÄ \"Îáğàòíûé Èòåğàòîğ\"" << std::endl;
-    std::cout << "14. Âûõîä" << std::endl;
+    std::cout << "1. ÃÃ¯Ã°Ã®Ã± Ã°Ã Ã§Ã¬Ã¥Ã°Ã  Ã±Ã¯Ã¨Ã±ÃªÃ  " << std::endl;
+    std::cout << "2. ÃÃ·Ã¨Ã±Ã²ÃªÃ  Ã±Ã¯Ã¨Ã±ÃªÃ " << std::endl;
+    std::cout << "3. ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã±Ã¯Ã¨Ã±ÃªÃ  Ã­Ã  Ã¯Ã³Ã±Ã²Ã®Ã²Ã³" << std::endl;
+    std::cout << "4. ÃÃ¯Ã°Ã®Ã± Ã­Ã Ã«Ã¨Ã·Ã¨Ã¿ Ã§Ã Ã¤Ã Ã­Ã­Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿" << std::endl;
+    std::cout << "5. Ã—Ã²Ã¥Ã­Ã¨Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã± Ã§Ã Ã¤Ã Ã­Ã­Ã»Ã¬ Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬ Ã¢ Ã±Ã¯Ã¨Ã±ÃªÃ¥" << std::endl;
+    std::cout << "6. ÃˆÃ§Ã¬Ã¥Ã­Ã¥Ã­Ã¨Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã± Ã§Ã Ã¤Ã Ã­Ã­Ã»Ã¬ Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬ Ã¢ Ã±Ã¯Ã¨Ã±ÃªÃ¥" << std::endl;
+    std::cout << "7. ÃÃ®Ã«Ã³Ã·Ã¥Ã­Ã¨Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¨ Ã¢ Ã±Ã¯Ã¨Ã±ÃªÃ¥ Ã¤Ã«Ã¿ Ã§Ã Ã¤Ã Ã­Ã­Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿" << std::endl;
+    std::cout << "8. Ã‚ÃªÃ«Ã¾Ã·Ã¥Ã­Ã¨Ã¥ Ã­Ã®Ã¢Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿" << std::endl;
+    std::cout << "9. Ã‚ÃªÃ«Ã¾Ã·Ã¥Ã­Ã¨Ã¥ Ã­Ã®Ã¢Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã¢ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¾ Ã± Ã§Ã Ã¤Ã Ã­Ã­Ã»Ã¬ Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬" << std::endl;
+    std::cout << "10. Ã“Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¥ Ã§Ã Ã¤Ã Ã­Ã­Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã¨Ã§ Ã±Ã¯Ã¨Ã±ÃªÃ " << std::endl;
+    std::cout << "11. Ã“Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿ Ã¨Ã§ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¨ Ã± Ã§Ã Ã¤Ã Ã­Ã­Ã»Ã¬ Ã­Ã®Ã¬Ã¥Ã°Ã®Ã¬" << std::endl;
+    std::cout << "12. Ã€Ã’Ã„ \"ÃÃ°Ã¿Ã¬Ã®Ã© ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã°\"" << std::endl;
+    std::cout << "13. Ã€Ã’Ã„ \"ÃÃ¡Ã°Ã Ã²Ã­Ã»Ã© ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã°\"" << std::endl;
+    std::cout << "14. Ã‚Ã»ÃµÃ®Ã¤" << std::endl;
     std::cout << "============================================" << std::endl;
-    std::cout << "Ââåäèòå êîìàíäó:" << std::endl;
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã¬Ã Ã­Ã¤Ã³:" << std::endl;
     return Check();
 }
 
 int OptionsIterator(MyList <int>::Iterator* it) {
-    std::cout << "================= ÀÒÄ \"Ïğÿìîé èòåğàòîğ\" ==================" << std::endl;
-    std::cout << "Òåêóùåå çíà÷åíèå èòåğàòîğà ";
+    std::cout << "================= Ã€Ã’Ã„ \"ÃÃ°Ã¿Ã¬Ã®Ã© Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°\" ==================" << std::endl;
+    std::cout << "Ã’Ã¥ÃªÃ³Ã¹Ã¥Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã  ";
     if (it == NULL)
         std::cout << "- " << std::endl;
     else
         std::cout << **it << std::endl;
     std::cout << "============================================" << std::endl;
-    std::cout << "1. Çàïğîñ ïğÿìîãî èòåğàòîğà begin()" << std::endl;
-    std::cout << "2. Çàïğîñ «íåóñòàíîâëåííîãî» ïğÿìîãî èòåğàòîğà end()" << std::endl;
-    std::cout << "3. Îïåğàöèÿ äîñòóïà ïî ÷òåíèş è çàïèñè ê òåêóùåìó çíà÷åíèş *" << std::endl;
-    std::cout << "4. Îïåğàöèÿ èíêğåìåíòà" << std::endl;
-    std::cout << "5. Îïåğàöèÿ äåêğåìåíòà äëÿ ïåğåõîäà ê ïğåäûäóùåìó" << std::endl;
-    std::cout << "6. Ïğîâåğêà ÿâëÿåòñÿ ëè èòåğàòîğ ãîëîâîé" << std::endl;
-    std::cout << "7. Ïğîâåğêà ÿâëÿåòñÿ ëè èòåğàòîğ õâîñòîì" << std::endl;
-    std::cout << "8. Âûõîä" << std::endl;
+    std::cout << "1. Ã‡Ã Ã¯Ã°Ã®Ã± Ã¯Ã°Ã¿Ã¬Ã®Ã£Ã® Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã  begin()" << std::endl;
+    std::cout << "2. Ã‡Ã Ã¯Ã°Ã®Ã± Â«Ã­Ã¥Ã³Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã­Ã®Ã£Ã®Â» Ã¯Ã°Ã¿Ã¬Ã®Ã£Ã® Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã  end()" << std::endl;
+    std::cout << "3. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¤Ã®Ã±Ã²Ã³Ã¯Ã  Ã¯Ã® Ã·Ã²Ã¥Ã­Ã¨Ã¾ Ã¨ Ã§Ã Ã¯Ã¨Ã±Ã¨ Ãª Ã²Ã¥ÃªÃ³Ã¹Ã¥Ã¬Ã³ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¾ *" << std::endl;
+    std::cout << "4. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¨Ã­ÃªÃ°Ã¥Ã¬Ã¥Ã­Ã²Ã " << std::endl;
+    std::cout << "5. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¤Ã¥ÃªÃ°Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã¤Ã«Ã¿ Ã¯Ã¥Ã°Ã¥ÃµÃ®Ã¤Ã  Ãª Ã¯Ã°Ã¥Ã¤Ã»Ã¤Ã³Ã¹Ã¥Ã¬Ã³" << std::endl;
+    std::cout << "6. ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã«Ã¨ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã° Ã£Ã®Ã«Ã®Ã¢Ã®Ã©" << std::endl;
+    std::cout << "7. ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã«Ã¨ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã° ÃµÃ¢Ã®Ã±Ã²Ã®Ã¬" << std::endl;
+    std::cout << "8. Ã‚Ã»ÃµÃ®Ã¤" << std::endl;
     std::cout << "============================================" << std::endl;
-    std::cout << "Ââåäèòå êîìàíäó:" << std::endl;
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã¬Ã Ã­Ã¤Ã³:" << std::endl;
     return Check();
 }
 
 int OptionsReverseIterator(MyList <int>::ReverseIterator* it) {
-    std::cout << "================= ÀÒÄ \"Ïğÿìîé èòåğàòîğ\" ==================" << std::endl;
-    std::cout << "Òåêóùåå çíà÷åíèå èòåğàòîğà: ";
+    std::cout << "================= Ã€Ã’Ã„ \"ÃÃ°Ã¿Ã¬Ã®Ã© Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°\" ==================" << std::endl;
+    std::cout << "Ã’Ã¥ÃªÃ³Ã¹Ã¥Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã : ";
     if (it == NULL)
         std::cout << "- " << std::endl;
     else
         std::cout << **it << std::endl;
     std::cout << "============================================" << std::endl;
-    std::cout << "1. Çàïğîñ îáğàòíîãî èòåğàòîğà rbegin()" << std::endl;
-    std::cout << "2. Çàïğîñ «íåóñòàíîâëåííîãî» îáğàòíîãî èòåğàòîğà rend()" << std::endl;
-    std::cout << "3. Îïåğàöèÿ çàïèñè ê òåêóùåìó çíà÷åíèş" << std::endl;
-    std::cout << "4. Îïåğàöèÿ èíêğåìåíòà" << std::endl;
-    std::cout << "5. Îïåğàöèÿ äåêğåìåíòà äëÿ ïåğåõîäà ê ïğåäûäóùåìó" << std::endl;
-    std::cout << "6. Ïğîâåğêà ÿâëÿåòñÿ ëè èòåğàòîğ ãîëîâîé" << std::endl;
-    std::cout << "7. Ïğîâåğêà ÿâëÿåòñÿ ëè èòåğàòîğ õâîñòîì" << std::endl;
-    std::cout << "8. Âûõîä" << std::endl;
+    std::cout << "1. Ã‡Ã Ã¯Ã°Ã®Ã± Ã®Ã¡Ã°Ã Ã²Ã­Ã®Ã£Ã® Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã  rbegin()" << std::endl;
+    std::cout << "2. Ã‡Ã Ã¯Ã°Ã®Ã± Â«Ã­Ã¥Ã³Ã±Ã²Ã Ã­Ã®Ã¢Ã«Ã¥Ã­Ã­Ã®Ã£Ã®Â» Ã®Ã¡Ã°Ã Ã²Ã­Ã®Ã£Ã® Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã°Ã  rend()" << std::endl;
+    std::cout << "3. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã§Ã Ã¯Ã¨Ã±Ã¨ Ãª Ã²Ã¥ÃªÃ³Ã¹Ã¥Ã¬Ã³ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¾" << std::endl;
+    std::cout << "4. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¨Ã­ÃªÃ°Ã¥Ã¬Ã¥Ã­Ã²Ã " << std::endl;
+    std::cout << "5. ÃÃ¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¤Ã¥ÃªÃ°Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã¤Ã«Ã¿ Ã¯Ã¥Ã°Ã¥ÃµÃ®Ã¤Ã  Ãª Ã¯Ã°Ã¥Ã¤Ã»Ã¤Ã³Ã¹Ã¥Ã¬Ã³" << std::endl;
+    std::cout << "6. ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã«Ã¨ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã° Ã£Ã®Ã«Ã®Ã¢Ã®Ã©" << std::endl;
+    std::cout << "7. ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã«Ã¨ Ã¨Ã²Ã¥Ã°Ã Ã²Ã®Ã° ÃµÃ¢Ã®Ã±Ã²Ã®Ã¬" << std::endl;
+    std::cout << "8. Ã‚Ã»ÃµÃ®Ã¤" << std::endl;
     std::cout << "============================================" << std::endl;
-    std::cout << "Ââåäèòå êîìàíäó:" << std::endl;
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã¬Ã Ã­Ã¤Ã³:" << std::endl;
     return Check();
 }
 
@@ -133,52 +103,52 @@ void MenuReverseIterator(MyList<int>& list) {
         case 1:
             if (it == NULL) {
                 it = new MyList<int>::ReverseIterator(list.rbegin());
-                std::cout << "Çàïğîñ rbegin() óñïåøíî âûïîëíåí" << std::endl;
+                std::cout << "Ã‡Ã Ã¯Ã°Ã®Ã± rbegin() Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             }
             else
-                std::cout << "Èòåğàòîğ óæå èíèöèàëèçèğîâàí" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³Ã¦Ã¥ Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã¨Ã°Ã®Ã¢Ã Ã­" << std::endl;
 
             break;
         case 2:
             if (it == NULL) {
                 it = new MyList<int>::ReverseIterator(list.rend());
-                std::cout << "Çàïğîñ rend() óñïåøíî âûïîëíåí" << std::endl;
+                std::cout << "Ã‡Ã Ã¯Ã°Ã®Ã± rend() Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             }
             else
-                std::cout << "Èòåğàòîğ óæå èíèöèàëèçèğîâàí" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³Ã¦Ã¥ Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã¨Ã°Ã®Ã¢Ã Ã­" << std::endl;
             break;
         case 3:
-            std::cout << "Ââåäèòå çíà÷åíèå äëÿ çàïèñè:" << std::endl;
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã§Ã Ã¯Ã¨Ã±Ã¨:" << std::endl;
             input_value = Check();
             **it = input_value;
-            std::cout << "Çíà÷åíèå ıëåìåíòà èçìåíåíî" << std::endl;
+            std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã¨Ã§Ã¬Ã¥Ã­Ã¥Ã­Ã®" << std::endl;
             break;
         case 4:
             ++(*it);
-            std::cout << "Ïåğåõîä ê ïğåäûäóùåìó ıëåìåíòó âûïîëíåí" << std::endl;
+            std::cout << "ÃÃ¥Ã°Ã¥ÃµÃ®Ã¤ Ãª Ã¯Ã°Ã¥Ã¤Ã»Ã¤Ã³Ã¹Ã¥Ã¬Ã³ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã³ Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             break;
         case 5:
             --(*it);
-            std::cout << "Ïåğåõîä ê ñëåäóşùåìó ıëåìåíòó âûïîëíåí" << std::endl;
+            std::cout << "ÃÃ¥Ã°Ã¥ÃµÃ®Ã¤ Ãª Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¥Ã¬Ã³ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã³ Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             break;
         case 6:
             if (*it == list.rend())
-                std::cout << "Èòåğàòîğ óêàçûâàåò íà ãîëîâó" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  Ã£Ã®Ã«Ã®Ã¢Ã³" << std::endl;
             if (*it != list.rend())
-                std::cout << "Èòåğàòîğ íå óêàçûâàåò íà ãîëîâó" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã­Ã¥ Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  Ã£Ã®Ã«Ã®Ã¢Ã³" << std::endl;
             break;
         case 7:
             if (*it == list.rbegin())
-                std::cout << "Èòåğàòîğ óêàçûâàåò íà õâîñò" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  ÃµÃ¢Ã®Ã±Ã²" << std::endl;
             if (*it != list.rbegin())
-                std::cout << "Èòåğàòîğ íå óêàçûâàåò íà õâîñò" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã­Ã¥ Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  ÃµÃ¢Ã®Ã±Ã²" << std::endl;
             break;
         case 8:
             delete it;
             f = false;
             break;
         default:
-            std::cout << "Êîìàíäû íå ñóùåñòâóåò" << std::endl;
+            std::cout << "ÃŠÃ®Ã¬Ã Ã­Ã¤Ã» Ã­Ã¥ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã²" << std::endl;
             break;
         }
         system("pause");
@@ -196,52 +166,52 @@ void MenuIterator(MyList<int>&list) {
         case 1:
             if (it == NULL) {
                 it = new MyList<int>::Iterator(list.begin());
-                std::cout << "Çàïğîñ begin() óñïåøíî âûïîëíåí" << std::endl;
-            }
-            else
-                std::cout << "Èòåğàòîğ óæå èíèöèàëèçèğîâàí" << std::endl;
-
-            break;
-        case 2:
-            if (it == NULL) {
-                it = new MyList<int>::Iterator(list.end());
-                std::cout << "Çàïğîñ end() óñïåøíî âûïîëíåí" << std::endl;
-            }
-            else
-                std::cout << "Èòåğàòîğ óæå èíèöèàëèçèğîâàí" << std::endl;
+            input_value = InputValidator::Check();
+    value = InputValidator::CheckNonNeg();
+                input_value = InputValidator::Check();
+                input_value = InputValidator::CheckNonNeg();
+                input_value = InputValidator::CheckNonNeg();
+                value = InputValidator::Check();
+                input_value = InputValidator::Check();
+                input_value = InputValidator::Check();
+                input_value = InputValidator::CheckNonNeg();
+                value = InputValidator::Check();
+                input_value = InputValidator::Check();
+                input_value = InputValidator::CheckNonNeg();
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³Ã¦Ã¥ Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã¨Ã°Ã®Ã¢Ã Ã­" << std::endl;
             break;
         case 3:
-            std::cout << "Ââåäèòå çíà÷åíèå äëÿ çàïèñè:" << std::endl;
+            std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã§Ã Ã¯Ã¨Ã±Ã¨:" << std::endl;
             input_value = Check();
             **it = input_value;
-            std::cout << "Çíà÷åíèå ıëåìåíòà èçìåíåíî" << std::endl;
+            std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã  Ã¨Ã§Ã¬Ã¥Ã­Ã¥Ã­Ã®" << std::endl;
             break;
         case 4:
             ++(*it);
-            std::cout << "Ïåğåõîä ê ñëåäóşùåìó ıëåìåíòó âûïîëíåí" << std::endl;
+            std::cout << "ÃÃ¥Ã°Ã¥ÃµÃ®Ã¤ Ãª Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¥Ã¬Ã³ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã³ Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             break;
         case 5:
             --(*it);
-            std::cout << "Ïåğåõîä ê ïğåäûäóùåìó ıëåìåíòó âûïîëíåí" << std::endl;
+            std::cout << "ÃÃ¥Ã°Ã¥ÃµÃ®Ã¤ Ãª Ã¯Ã°Ã¥Ã¤Ã»Ã¤Ã³Ã¹Ã¥Ã¬Ã³ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã³ Ã¢Ã»Ã¯Ã®Ã«Ã­Ã¥Ã­" << std::endl;
             break;
         case 6:
             if (*it == list.begin())
-                std::cout << "Èòåğàòîğ óêàçûâàåò íà ãîëîâó" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  Ã£Ã®Ã«Ã®Ã¢Ã³" << std::endl;
             if (*it != list.begin())
-                std::cout << "Èòåğàòîğ íå óêàçûâàåò íà ãîëîâó" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã­Ã¥ Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  Ã£Ã®Ã«Ã®Ã¢Ã³" << std::endl;
             break;
         case 7:
             if (*it == list.end())
-                std::cout << "Èòåğàòîğ óêàçûâàåò íà õâîñò" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  ÃµÃ¢Ã®Ã±Ã²" << std::endl;
             if (*it != list.end())
-                std::cout << "Èòåğàòîğ íå óêàçûâàåò íà õâîñò" << std::endl;
+                std::cout << "ÃˆÃ²Ã¥Ã°Ã Ã²Ã®Ã° Ã­Ã¥ Ã³ÃªÃ Ã§Ã»Ã¢Ã Ã¥Ã² Ã­Ã  ÃµÃ¢Ã®Ã±Ã²" << std::endl;
             break;
         case 8:
             delete it;
             f = false;
             break;
         default:
-            std::cout << "Êîìàíäû íå ñóùåñòâóåò" << std::endl;
+            std::cout << "ÃŠÃ®Ã¬Ã Ã­Ã¤Ã» Ã­Ã¥ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã²" << std::endl;
             break;
         }
         system("pause");
@@ -252,7 +222,7 @@ void MenuIterator(MyList<int>&list) {
 void Menu() {
     int value, input_value;
     bool f = true;
-    std::cout << "Ââåäèòå ğàçìåğ ñïèñêà:";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã°Ã Ã§Ã¬Ã¥Ã° Ã±Ã¯Ã¨Ã±ÃªÃ :";
     value = CheckNonNeg();
 
     MyList <int> start_list;
@@ -265,84 +235,84 @@ void Menu() {
         try {
             switch (Options(start_list, current_list)) {
             case 1:
-                std::cout << "Ğàçìåğ ñïèñêà: " << current_list.GetSize() << std::endl;
+                std::cout << "ÃÃ Ã§Ã¬Ã¥Ã° Ã±Ã¯Ã¨Ã±ÃªÃ : " << current_list.GetSize() << std::endl;
                 break;
             case 2:
-                std::cout << "Ñïèñîê îò÷èùåí" << std::endl;
+                std::cout << "Ã‘Ã¯Ã¨Ã±Ã®Ãª Ã®Ã²Ã·Ã¨Ã¹Ã¥Ã­" << std::endl;
                 current_list.Clean();
                 break;
             case 3:
                 if (current_list.IsEmpty()) {
-                    std::cout << "Ñïèñîê ïóñò" << std::endl;
+                    std::cout << "Ã‘Ã¯Ã¨Ã±Ã®Ãª Ã¯Ã³Ã±Ã²" << std::endl;
                 }
                 else {
-                    std::cout << "Ñïèñîê íå ïóñò" << std::endl;
+                    std::cout << "Ã‘Ã¯Ã¨Ã±Ã®Ãª Ã­Ã¥ Ã¯Ã³Ã±Ã²" << std::endl;
                 }
                 break;
             case 4:
-                std::cout << "Ââåäèòå çíà÷åíèå, íàëè÷èå êîòîğîãî íóæíî ïğîâåğèòü:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥, Ã­Ã Ã«Ã¨Ã·Ã¨Ã¥ ÃªÃ®Ã²Ã®Ã°Ã®Ã£Ã® Ã­Ã³Ã¦Ã­Ã® Ã¯Ã°Ã®Ã¢Ã¥Ã°Ã¨Ã²Ã¼:" << std::endl;
                 input_value = Check();
                 if (current_list.IsThere(input_value)) {
-                    std::cout << "Çíà÷åíèå ÿâëÿåòñÿ ıëåìåíòîì ñïèñêà" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¬ Ã±Ã¯Ã¨Ã±ÃªÃ " << std::endl;
                 }
                 else {
-                    std::cout << "Çíà÷åíèå íå ÿâëÿåòñÿ ıëåìåíòîì ñïèñêà" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã­Ã¥ Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¬ Ã±Ã¯Ã¨Ã±ÃªÃ " << std::endl;
                 }
                 break;
             case 5:
-                std::cout << "Ââåäèòå ïîçèöèş èñêîìîãî çíà÷åíèÿ: " << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¾ Ã¨Ã±ÃªÃ®Ã¬Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿: " << std::endl;
                 input_value = CheckNonNeg();
-                std::cout << "Çíà÷åíèå: " << current_list.FindValue(input_value) << std::endl;
+                std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥: " << current_list.FindValue(input_value) << std::endl;
                 break;
             case 6:
-                std::cout << "Ââåäèòå ïîçèöèş çàìåíÿåìîãî çíà÷åíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¾ Ã§Ã Ã¬Ã¥Ã­Ã¿Ã¥Ã¬Ã®Ã£Ã® Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 input_value = CheckNonNeg();
-                std::cout << "Ââåäèòå çíà÷åíèå äëÿ çàìåíû:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã§Ã Ã¬Ã¥Ã­Ã»:" << std::endl;
                 value = Check();
                 if (current_list.ChangeValue(input_value, value))
-                    std::cout << "Çíà÷åíèå óñïåøíî èçìåíåíî" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¨Ã§Ã¬Ã¥Ã­Ã¥Ã­Ã®" << std::endl;
                 break;
             case 7:
-                std::cout << "Ââåäèòå çíà÷åíèå, êîòîğîå íóæíî íàéòè:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥, ÃªÃ®Ã²Ã®Ã°Ã®Ã¥ Ã­Ã³Ã¦Ã­Ã® Ã­Ã Ã©Ã²Ã¨:" << std::endl;
                 input_value = Check();
                 value = current_list.FindPos(input_value);
                 if (value != -1) {
-                    std::cout << "Ïîçèöèÿ çíà÷åíèÿ: " << value << std::endl;
+                    std::cout << "ÃÃ®Ã§Ã¨Ã¶Ã¨Ã¿ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¿: " << value << std::endl;
                 }
                 else {
-                    std::cout << "Çíà÷åíèå íå ÿâëÿåòñÿ ıëåìåíòîì ñïèñêà" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã­Ã¥ Ã¿Ã¢Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¬ Ã±Ã¯Ã¨Ã±ÃªÃ " << std::endl;
                 }
                 break;
             case 8:
-                std::cout << "Ââåäèòå çíà÷åíèå äëÿ äîáàâëåíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 input_value = Check();
                 current_list.AddValue(input_value);
-                std::cout << "Çíà÷åíèå óñïåøíî äîáàâëåíî" << std::endl;
+                std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã®" << std::endl;
                 break;
             case 9:
-                std::cout << "Ââåäèòå ïîçèöèş äëÿ äîáàâëåíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¾ Ã¤Ã«Ã¿ Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 input_value = CheckNonNeg();
-                std::cout << "Ââåäèòå çíà÷åíèå äëÿ äîáàâëåíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 value = Check();
                 if (current_list.AddValueToPos(input_value, value)) {
-                    std::cout << "Çíà÷åíèå óñïåøíî äîáàâëåíî" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã®" << std::endl;
                 }
                 break;
             case 10:
-                std::cout << "Ââåäèòå çíà÷åíèå äëÿ óäàëåíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã§Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã¤Ã«Ã¿ Ã³Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 input_value = Check();
                 value = current_list.DeleteValue(input_value);
                 if (input_value == value) {
-                    std::cout << "Çíà÷åíèå óñïåøíî óäàëåíî" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã³Ã¤Ã Ã«Ã¥Ã­Ã®" << std::endl;
                 }
                 else {
-                    std::cout << "Çíà÷åíèå íå óäàëåíî" << std::endl;
+                    std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ Ã­Ã¥ Ã³Ã¤Ã Ã«Ã¥Ã­Ã®" << std::endl;
                 }
                 break;
             case 11:
-                std::cout << "Ââåäèòå ïîçèöèş äëÿ óäàëåíèÿ:" << std::endl;
+                std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã¾ Ã¤Ã«Ã¿ Ã³Ã¤Ã Ã«Ã¥Ã­Ã¨Ã¿:" << std::endl;
                 input_value = CheckNonNeg();
-                std::cout << "Çíà÷åíèå " << current_list.DeletePos(input_value) << " óñïåøíî óäàëåíî" << std::endl;
+                std::cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥ " << current_list.DeletePos(input_value) << " Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã® Ã³Ã¤Ã Ã«Ã¥Ã­Ã®" << std::endl;
                 break;
             case 12:
                 MenuIterator(current_list);
@@ -354,7 +324,7 @@ void Menu() {
                 f = false;
                 break;
             default:
-                std::cout << "Êîìàíäû íå ñóùåñòâóåò" << std::endl;
+                std::cout << "ÃŠÃ®Ã¬Ã Ã­Ã¤Ã» Ã­Ã¥ Ã±Ã³Ã¹Ã¥Ã±Ã²Ã¢Ã³Ã¥Ã²" << std::endl;
                 break;
             }
         }
